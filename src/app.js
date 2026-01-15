@@ -8,30 +8,21 @@ import "./assets/img/4geeks.ico";
 window.onload = function() {
   //write your code here
 
-let pronouns = ['The', 'Our', 'Thier', 'Your', 'His'];
+let pronouns = ['The', 'Our', 'Their', 'Your', 'His'];
 let adjectives = ['chonky', 'hairy', 'lovable', 'annoying', 'desperate'];
 let nouns = ['cat', 'aunt', 'sasquatch', 'Yoshi', 'BillMurray'];
 
-// for (let pronoun in pronouns) {
-//   for(let adjective in adjectives){
-//     for(let noun in nouns){
-//       console.log(`${pronouns[pronoun]}${adjectives[adjective]}${nouns[noun]}.com`)
-//     }
-//   }
-// }
+const myUl = document.getElementById("myList");
 
-const domainNameSum = function (arr){
-    let randInt = (Math.floor(Math.random()* 5))
-    return arr[randInt]
+for (let pronoun of pronouns) {
+  for(let adjective of adjectives){
+    for(let noun of nouns){
+      console.log(`www.${pronoun}${adjective}${noun}.com`);
+      const domain = `www.${pronoun}${adjective}${noun}.com`;
+      const li = document.createElement("li");
+        li.textContent = domain;
+        myUl.appendChild(li)
+    }
+  }
 }
-      // console.log(domainNameSum(pronouns))
-      // console.log(domainNameSum(adjectives))
-      // console.log(domainNameSum(nouns))
-      let newDomainName = console.log(`www.${domainNameSum(pronouns)}${domainNameSum(adjectives)}${domainNameSum(nouns)}.com`)
-    };
-const button = document.getElementById("myButton");
-function changeText() {
-  paragraph.innerHTML = `www.${domainNameSum(pronouns)}${domainNameSum(adjectives)}${domainNameSum(nouns)}.com`;
-}
-document.getElementById("paragraph");
-button.addEventListener("click", changeText);
+};
